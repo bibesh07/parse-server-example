@@ -11,10 +11,6 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.' + databaseUri);
 }
 
-console.log("The Database_uri is " + process.env.DATABASE_URI);
-console.log("The MONGODB_URI is " + process.env.MONGODB_URI);
-console.log("The databaseUri is " + databaseUri);
-
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb+srv://admin:pr1mt3kP@$$@cluster0-vresh.mongodb.net/test?retryWrites=true&w=majority',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
@@ -25,6 +21,9 @@ var api = new ParseServer({
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
 });
+
+console.log('The app id is ' + api.appId);
+console.log('The master_key is ' + api.masterKey);
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
