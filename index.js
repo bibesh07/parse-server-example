@@ -11,6 +11,10 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.' + databaseUri);
 }
 
+console.log("The Database_uri is " + process.env.DATABASE_URI);
+console.log("The MONGODB_URI is " + process.env.MONGODB_URI);
+console.log("The databaseUri is " + databaseUri);
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
