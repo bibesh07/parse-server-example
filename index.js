@@ -5,10 +5,10 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
-var databaseUri = "mongodb+srv://admin:pr1mt3kP@$$@cluster0-vresh.mongodb.net/test?retryWrites=true&w=majority";
+var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI || "mongodb+srv://admin:pr1mt3kP@$$@cluster0-vresh.mongodb.net/test?retryWrites=true&w=majority";
 
 if (!databaseUri) {
-  console.log('DATABASE_URI not specified, falling back to localhost.');
+  console.log('DATABASE_URI not specified, falling back to localhost.' + databaseUri);
 }
 
 var api = new ParseServer({
