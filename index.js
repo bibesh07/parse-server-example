@@ -16,7 +16,7 @@ console.log("The MONGODB_URI is " + process.env.MONGODB_URI);
 console.log("The databaseUri is " + databaseUri);
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb+srv://admin:pr1mt3kP@$$@cluster0-vresh.mongodb.net/test?retryWrites=true&w=majority',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
